@@ -1,3 +1,9 @@
+FORK not official see https://github.com/chipweinberger/dart_melty_soundfont/
+synth.holdNote
+synth.attackModifier
+wanted ability to sustain note and modify attack
+
+
 <p align="center">
 <img src="https://github.com/chipweinberger/dart_melty_soundfont/blob/main/logo.png?raw=true" />
 </p>
