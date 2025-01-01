@@ -36,6 +36,7 @@ class VolumeEnvelope
                 required double sustain, 
                 required double release})
     {
+        attack /= synthesizer.attackModifier;
         _attackSlope = 1 / attack;
         _decaySlope = -9.226 / decay;
         _releaseSlope = -9.226 / release;
@@ -121,13 +122,13 @@ class VolumeEnvelope
                 return true;
 
             case EnvelopeStage.decay:
-
+                if(!synthesizer.holdNote) {
                 double t = currentTime - _decayStartTime;
                 double cutoff = SoundFontMath.expCutoff(_decaySlope * t);
 
                 _value = max(cutoff, _sustainLevel);
                 _priority = 1.0 + _value;
-
+                }
                 return _value > SoundFontMath.nonAudible;
 
             case EnvelopeStage.release:
