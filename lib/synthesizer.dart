@@ -67,6 +67,8 @@ class Synthesizer implements AudioRenderer {
   final List<double>? _chorusOutputRight;
 
   int _blockRead;
+  bool holdNote = false;
+  double attackModifier = 1.0;
 
   Synthesizer({
     required this.soundFont,
